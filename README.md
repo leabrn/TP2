@@ -1,3 +1,5 @@
 # TP2 - BARON Léa - Gestion des branches et fusions
 Modification sur develop avant merge de f1.
-Ceci est une description du projet
+Ceci est une description du projet dans le fichier README.md
+Cette phrase concerne la partie rebase du TP2. (feature4)
+Fin des modifications de la feature f4
