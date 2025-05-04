@@ -1,0 +1,118 @@
+TP2 Léa BARON
+
+1. 
+git status
+Sur la branche master
+
+Aucun commit
+
+rien à valider (créez/copiez des fichiers et utilisez "git add" pour les suivre)
+
+2. 
+git branch -m develop
+echo "" >> README.md
+git add README.md 
+git commit -m "# TP2 : Gestion des branches"
+
+3.
+git switch -c feature1
+echo "Ceci est une description du projet" >> README.md
+git add README.md
+git commit -m "Ajout d'une description à README.md"
+
+4.
+git switch develop
+echo "Modification sur develop avant merge de f1." >> README.md
+git add README.md 
+git commit -m "Ajout d'une deuxième ligne au README.md"
+git merge feature1
+Fusion automatique de README.md
+CONFLIT (contenu) : Conflit de fusion dans README.md
+La fusion automatique a échoué ; réglez les conflits et validez le résultat.
+
+interprétation : conflit entre les branches, une ligne en commun a du être modifié, il faut réglé le conflit manuellement.
+
+vi README.md
+git add README.md
+git commit -m "fusion entre develop ent feature1 sur develop"
+
+5.
+git status
+git switch -c feature2
+vi README.md
+git add README.md
+git commit
+
+6.
+git switch develop
+git switch -c feature3
+vi README.md
+git add README.md 
+
+7.
+git merge feature2
+Mise à jour 021c0ac..1956773
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+ 
+ Il n'y a pas de conflit.
+
+git merge feature3
+Fusion automatique de README.md
+CONFLIT (contenu) : Conflit de fusion dans README.md
+La fusion automatique a échoué ; réglez les conflits et validez le résultat.
+
+Il y a un conflit.
+
+8.
+vi README.md
+git add README.md
+git commit -m "fusion entre develop et feature2 et feauture3 sur develop"
+git merge feature3
+Déjà à jour.
+
+Rebase
+
+1. 
+git switch -c feature4
+vi README.md
+git add README.md
+git commit -m "Ajout dans README.md - partie rebase"
+
+2.
+vi README.md
+git add README.md
+git commit -m "Ajout dans README.md - mention feature4"
+
+3.
+vi README.md
+git add README.md
+git commit -m "Ajout dans README.md - derniere ligne feature4"
+
+4.
+git log --oneline
+git rebase -i HEAD~3
+
+5.
+git switch develop
+vi README.md
+git add .\README.md
+git commit -m "Changement du titre du README.md"
+git push --all
+
+6.
+git rebase feature4
+Successfully rebased and updated refs/heads/develop.
+
+7.
+git merge permet de sauvegarder l'historique des commits sur deux branches différentes et la représentation des commits sous forme d'un "arbre".
+
+8.
+git rebase fusionne les commits d'une branche directement à la suite de l'autre branche comme si les commits avaient appartenu à la même branche. Elle a été utile dans ce tp pour mettre feature 4 sur la même branche develop et pour "squash" des commits entre eux et les rendre plus lisibles.
+
+9.
+git push -f origin develop
+
+10.
+voir schema.png
